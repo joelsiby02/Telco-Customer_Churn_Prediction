@@ -1,0 +1,46 @@
+i want to create a new col 'Family' check if the customer have parent or children (any of them) and want to put it into a new col & remove "partner' & 'Dependents' col
+
+
+
+PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,PaperlessBilling,Churn,family
+
+These 12 cols in my dataset df2 has only 'Yes' and 'No' values in each rows so make a loop to check these 12 cols and initilize '0 for Yes' and '1 for No'
+
+Also in gender column there is Male and Female, i want to initilize '0 for male' & '1 for female'
+
+
+
+import tensorflow as tf
+from tensorflow import keras
+
+model = keras.Sequential([
+    keras.layers.Dense(23, input_shape=(23,), activation='relu'),
+    keras.layers.Dense(64, activation='relu'),
+    keras.layers.Dense(32, activation='relu'),
+    keras.layers.Dense(16, activation='relu'),
+    keras.layers.Dense(1, activation='sigmoid')
+])
+
+model.compile(optimizer='adam',
+              loss='binary_crossentropy',
+              metrics=['accuracy'])
+
+model.fit(X_train, y_train, epochs=20)
+
+
+// About the code above
+
+1. `import tensorflow as tf`: This line imports the TensorFlow library which is a popular open-source software library for data-driven machine learning and deep learning applications.
+2. `from tensorflow import keras`: This line imports the Keras API from TensorFlow, which provides a high-level interface for building and training deep learning models.
+3. `model = keras.Sequential([...])`: This line initializes a sequential model using Keras API. A sequential model is a linear stack of layers where you can simply add new layers using the `add()` method.
+4. `keras.layers.Dense(26, input_shape=(26,), activation='relu')`: This line adds a dense layer with 26 nodes and sets the input shape to (26,) as each sample in our dataset has 26 features. The activation function used is ReLU, which stands for Rectified Linear Unit.
+5. `keras.layers.Dense(15, activation='relu')`: This line adds a second dense layer with 15 nodes and also uses the ReLU activation function.
+6. `keras.layers.Dense(1, activation='sigmoid')`: This line adds the final dense layer with a single output node and uses the sigmoid activation function. The sigmoid function is commonly used for binary classification problems, as it squashes the output to a range of 0 to 1, which can be interpreted as the probability of the input belonging to the positive class.
+7. `model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])`: This line compiles the model and sets the optimizer to Adam, which is an algorithm for stochastic optimization. The loss function used is binary_crossentropy, which is commonly used for binary classification problems. The metric used to evaluate the performance of the model is accuracy.
+8. `model.fit(X_train, y_train, epochs=100)`: This line trains the model on the training set (X_train and y_train) for 100 epochs, which means the model will go through the entire training dataset 100 times.
+
+In summary, this code builds a simple neural network model with three dense layers and trains it on the training set using binary cross-entropy as the loss function and the Adam optimizer. The accuracy of the model is used to evaluate its performance during training.
+
+
+
+
